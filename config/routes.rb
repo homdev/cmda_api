@@ -7,6 +7,10 @@ Rails.application.routes.draw do
         passwords: "api/v1/passwords"
       }
 
+      devise_scope :user do
+        delete 'users/sign_out', to: 'api/v1/sessions#destroy', as: :destroy_user_session
+      end
+
       resource :profile, only: [ :show, :update ]
     end
   end
