@@ -2,12 +2,15 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       devise_for :users, controllers: {
-        sessions: "api/v1/sessions",
-        registrations: "api/v1/registrations" # Ajout du contrôleur registrations
+        sessions: 'api/v1/sessions',
+        registrations: 'api/v1/registrations',
+        passwords: 'api/v1/passwords'
       }
-      resources :users, only: [ :show, :index, :update, :destroy ]
+  
+      resource :profile, only: [:show, :update]
     end
   end
+  
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
