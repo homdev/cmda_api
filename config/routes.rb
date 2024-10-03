@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       }
 
       devise_scope :user do
-        delete 'users/sign_out', to: 'api/v1/sessions#destroy', as: :destroy_user_session
+        delete "users/sign_out", to: "api/v1/sessions#destroy", as: :destroy_user_session
       end
 
       resource :profile, only: [ :show, :update ]
