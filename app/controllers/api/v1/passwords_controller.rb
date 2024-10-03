@@ -1,5 +1,3 @@
-# app/controllers/api/v1/passwords_controller.rb
-
 module Api
   module V1
     class PasswordsController < Devise::PasswordsController
