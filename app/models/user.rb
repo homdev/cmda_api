@@ -15,7 +15,7 @@ class User < ApplicationRecord
   validates :profession, presence: true
   validates :city, presence: true
   validates :country, presence: true
-  validates :profile_image_url, format: URI::regexp(%w[http https]), allow_nil: true
+  validates :profile_image_url, format: URI.regexp(%w[http https]), allow_nil: true
   validates :phone_number, format: { with: /\A\+?[0-9]{7,15}\z/, message: "must be a valid phone number" }, allow_nil: true
 
   # Custom validations
