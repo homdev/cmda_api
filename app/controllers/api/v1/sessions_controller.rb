@@ -9,22 +9,22 @@ module Api
       def create
         user = User.find_by_email(sign_in_params[:email])
         if user&.valid_password?(sign_in_params[:password])
-          render json: { message: 'Login successful', user: user, token: current_token }, status: :ok
+          render json: { message: "Login successful", user: user, token: current_token }, status: :ok
         else
-          render json: { error: 'Invalid email or password' }, status: :unauthorized
+          render json: { error: "Invalid email or password" }, status: :unauthorized
         end
       end
 
       # DELETE /api/v1/users/sign_out
       def destroy
         current_user&.update_column(:jti, nil) # Révoque le token JWT
-        render json: { message: 'Logged out successfully' }, status: :ok
+        render json: { message: "Logged out successfully" }, status: :ok
       end
 
       private
 
       def current_token
-        request.env['warden-jwt_auth.token']
+        request.env["warden-jwt_auth.token"]
       end
 
       def sign_in_params

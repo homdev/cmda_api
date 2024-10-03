@@ -10,9 +10,9 @@ module Api
         user = User.find_by_email(password_params[:email])
         if user
           user.send_reset_password_instructions
-          render json: { message: 'Password reset instructions sent' }, status: :ok
+          render json: { message: "Password reset instructions sent" }, status: :ok
         else
-          render json: { error: 'Email not found' }, status: :not_found
+          render json: { error: "Email not found" }, status: :not_found
         end
       end
 
@@ -20,7 +20,7 @@ module Api
       def update
         user = User.reset_password_by_token(reset_password_params)
         if user.errors.empty?
-          render json: { message: 'Password updated successfully' }, status: :ok
+          render json: { message: "Password updated successfully" }, status: :ok
         else
           render json: { error: user.errors.full_messages }, status: :unprocessable_entity
         end
