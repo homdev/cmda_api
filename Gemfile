@@ -41,5 +41,5 @@ group :development, :test do
 end
 
 
-gem 'devise'
-gem 'devise-jwt'
+gem "devise"
+gem "devise-jwt"
