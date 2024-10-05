@@ -11,3 +11,8 @@ User.create!(email: 'admin@example.com', password: 'password', role: 'admin')
 User.create!(email: 'moderator@example.com', password: 'password', role: 'moderator')
 User.create!(email: 'member@example.com', password: 'password', role: 'member')
 User.create!(email: 'user@example.com', password: 'password', role: 'user')
+User.create!(email: 'userfr@example.com', password: 'password', role: 'user', name: '', country: '', city: '', profession: '', phone_number: '', bio: '', )
+User.create!(email: 'userbe@example.com', password: 'password', role: 'user', name: '', country: '', city: '', profession: '', phone_number: '', bio: '', )
+User.create!(email: 'userdz@example.com', password: 'password', role: 'user', name: '', country: '', city: '', profession: '', phone_number: '', bio: '', )
+User.create!(email: 'userit@example.com', password: 'password', role: 'user', name: '', country: '', city: '', profession: '', phone_number: '', bio: '', )
+
