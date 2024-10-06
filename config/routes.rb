@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Rswag::Api::Engine => '/api-docs'
+  mount Rswag::Ui::Engine => '/api-docs'
   namespace :api do
     namespace :v1 do
       devise_for :users, controllers: {
@@ -12,6 +14,7 @@ Rails.application.routes.draw do
       end
 
       resource :profile, only: [ :show, :update ]
+      resources :users, only: [ :index, :show ]
     end
   end
 

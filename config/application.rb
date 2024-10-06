@@ -32,5 +32,17 @@ module CmdaApi
     # This is an API-only app, and we need sessions for Devise
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore
+
+    # Configuration pour rack-cors
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'http://localhost:3000'  # Autorise spécifiquement localhost:3000
+        resource '*',
+          headers: :any,
+          methods: [:get, :post, :put, :patch, :delete, :options, :head],
+          expose: ['Authorization'],
+          credentials: true  # Si tu utilises des cookies ou des sessions pour l'authentification
+      end
+    end
   end
 end

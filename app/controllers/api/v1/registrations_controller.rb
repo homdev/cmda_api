@@ -20,7 +20,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
             params.require(:user).permit(
             :name, :surname, :email, :password, :password_confirmation,
             :profession, :city, :country, :profile_image_url,
-            :banner_image_metadata, :address, :phone_number
+            :banner_image_metadata, :address, :phone_number, :bio
         )
     end
 end
