@@ -2,6 +2,7 @@ class User < ApplicationRecord
   # Enum for roles
   enum role: { user: 0, member: 1, moderator: 2, admin: 3 }
 
+  has_many :experiences, dependent: :destroy
   # Devise modules
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
