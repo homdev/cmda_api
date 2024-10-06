@@ -10,9 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_05_075837) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_05_232854) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "experiences", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "title"
+    t.string "company_name"
+    t.string "location"
+    t.date "start_date"
+    t.date "end_date"
+    t.boolean "current"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_experiences_on_user_id"
+  end
 
   create_table "jwt_blacklists", force: :cascade do |t|
     t.string "jti"
@@ -44,4 +58,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_05_075837) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
+  add_foreign_key "experiences", "users"
 end

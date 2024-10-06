@@ -14,12 +14,19 @@ Rails.application.routes.draw do
       end
 
       resource :profile, only: [ :show, :update ]
-      resources :users, only: [ :index, :show ]
+      # Routes pour les utilisateurs et leurs expériences
+      resources :users, only: [:index, :show] do
+        resources :experiences, only: [:index, :create, :show, :update, :destroy]
+      end
     end
   end
 
 
-
+  namespace :api do
+    namespace :v1 do
+      resources :experiences, only: [:index, :create, :show, :update, :destroy]
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
